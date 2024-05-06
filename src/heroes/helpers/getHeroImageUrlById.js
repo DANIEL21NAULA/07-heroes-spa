@@ -1,3 +1,1 @@
-export const getHeroImageUrlById = (id) => {
-    return `/assets/heroes/${ id }.jpg`;
-}
+export const getHeroImageUrlById = (id) => `/assets/heroes/${id}.jpg`;

@@ -1,56 +1,71 @@
-import { Link } from "react-router-dom";
-import { getHeroImageUrlById } from "../helpers";
-import { useMemo } from "react";
+import { Link } from 'react-router-dom';
+import { useMemo } from 'react';
+import PropTypes from 'prop-types';
+import { getHeroImageUrlById } from '../helpers';
 
-const CharactersByHero = ({ alter_ego, characters }) => {
+const CharactersByHero = ({ alterEgo, characters }) => (
   // if( alter_ego === characters) return (<></>);
-
   // return(
   //   <p>{ characters }</p>
   // );
 
-  return alter_ego === characters
-  ? (<></>)
-  : (<p>{ characters }</p>);
-}
+  alterEgo === characters
+    ? (<></>)
+    : (<p>{ characters }</p>)
+);
 
 export const HeroCard = ({
   id,
   superhero,
-  publisher,
-  alter_ego,
-  first_appearance,
+  alterEgo,
+  firstAppearance,
   characters,
 }) => {
-  
-  const heroImageUrl = useMemo(() => getHeroImageUrlById( id ), [id]);
-  //const charactersByHero = (<p>{ characters }</p>);
+  const heroImageUrl = useMemo(() => getHeroImageUrlById(id), [id]);
+  // const charactersByHero = (<p>{ characters }</p>);
   return (
     <div className="col animate__animated animate__fadeIn">
       <div className="card">
         <div className="row no-gutters">
           <div className="col-4">
-            <img src={ heroImageUrl } className='card-img'  alt={ superhero } />
+            <img
+              src={heroImageUrl}
+              className="card-img"
+              alt={superhero}
+            />
           </div>
           <div className="col-8">
             <div className="card-body">
-              <h5 className="card-title">{ superhero }</h5>
-              <p className="card-text">{ alter_ego }</p>
+              <h5 className="card-title">{superhero}</h5>
+              <p className="card-text">{alterEgo}</p>
               {/* {
                 (alter_ego !== characters) && (charactersByHero)
               } */}
-              <CharactersByHero characters={ characters } alter_ego={ alter_ego } />
+              <CharactersByHero characters={characters} alter_ego={alterEgo} />
               <p className="card-text">
-                <small className="text-muted">{ first_appearance }</small>
+                <small className="text-muted">{ firstAppearance }</small>
               </p>
 
-              <Link to={`/hero/${ id }`}>
+              <Link to={`/hero/${id}`}>
                 Más..
               </Link>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+HeroCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  superhero: PropTypes.string.isRequired,
+  alterEgo: PropTypes.string.isRequired,
+  firstAppearance: PropTypes.string.isRequired,
+  characters: PropTypes.string.isRequired,
+};
+
+CharactersByHero.propTypes = {
+  alterEgo: PropTypes.string.isRequired,
+  characters: PropTypes.string.isRequired,
+};

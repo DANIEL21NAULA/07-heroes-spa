@@ -1,12 +1,8 @@
-import { getHeroesByPublisher } from '../helpers';
-import { HeroList } from '../index'
+import { HeroList } from '../components';
 
-export const DcPage = () => {
-  const heroes = getHeroesByPublisher('DC Comics');
-  return (
-    <>
-      <h1>Dc Comics</h1>
-      <HeroList publisher='DC Comics'/>
-    </>
-  );
-}
+export const DcPage = () => (
+  <>
+    <h1>Dc Comics</h1>
+    <HeroList publisher="DC Comics" />
+  </>
+);
