@@ -11,7 +11,7 @@ export const HeroList = ({ publisher }) => {
       {
         heroes.map((hero) => (
           <HeroCard
-            key={hero.hero.id}
+            key={hero.id}
             id={hero.id}
             superhero={hero.superhero}
             alterEgo={hero.alter_ego}
