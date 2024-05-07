@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2020: true, jest: true },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -21,6 +21,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "import/extensions": "off",
     "linebreak-style": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
